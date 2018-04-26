@@ -1,0 +1,17 @@
+    <%@stores.each do | store | %>
+    <%= "#{store.title}, #{store.city}" %>
+    <%= link_to('Click here if this is closest!', action: 'stores_view', params: {id: store.id}) %>
+    <br>
+    <hr>
+    <%end%>
+
+    Not sure what store is closest? Type your address below and we can suggest one!
+
+<br>
+<br>
+<br>
+    <%= form_tag("/pages/storesearch", method: "post") do %>
+      <%= label_tag(:user_address_input, "Enter address here!") %>
+      <%= text_field_tag(:user_address_input) %>
+      <%= submit_tag("Search") %>
+      <% end %>

@@ -1,0 +1,10 @@
+    <h1>Authors</h1>
+    <%@authors.each do | author |%>
+      <%= image_tag(author.img_url) %>
+    <i><%= "#{author.first_name} #{author.last_name}"%></i>
+    <i><%= link_to('his books', action: 'author_books', params: {id: author.id}) %></i>
+    <% end %>
+    <br>
+
+
+  </p>

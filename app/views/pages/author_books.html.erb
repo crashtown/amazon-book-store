@@ -1,0 +1,11 @@
+    <% @author.books.each do | book | %>
+      <strong><%=book.title%></strong> by
+      <%=book.author.name%>
+      <%=image_tag(book.img_url)%>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="<%=book.title%> by <%=book.author.name %>"
+              data-amount= "<% book.price %>"
+              data-locale="auto"></script>
+              <hr>
+              <% end %>

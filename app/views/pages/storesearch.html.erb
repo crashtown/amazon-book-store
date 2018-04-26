@@ -1,0 +1,6 @@
+
+    <%@stores_user_address.each do | store | %>
+      <%=store.title%> is closest to you at <%=store.city%>.
+      <%= link_to('Click here for more info!', action: 'stores_view', params: {id: store.id}) %>
+      <%break%>
+    <%end%>
